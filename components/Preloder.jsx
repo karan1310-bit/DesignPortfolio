@@ -20,7 +20,7 @@ const Preloader = () => {
 
     tl.to(".progress-bar", {
       width: "100%",
-      duration: 5,
+      duration: 4,
       ease: "power1.inOut",
       onUpdate: function () {
         if (percentage.current) {
@@ -73,7 +73,7 @@ const Preloader = () => {
       {/* Percentage counter */}
       <div
         ref={refs.percentage}
-        className="percentage fixed bottom-6 right-4 text-[12rem] sm:text-[12rem] md:text-[14rem] lg:text-[15rem] xl:text-[20rem] 2xl:text-[25rem] font-bold opacity-10 leading-[0.8]"
+        className="percentage fixed bottom-6 right-4 text-[11rem] sm:text-[12rem] md:text-[13rem] lg:text-[13rem] xl:text-[15rem] 2xl:text-[15rem] font-bold opacity-10 leading-[0.8]"
       >
         0
       </div>
