@@ -1,6 +1,6 @@
 'use client'
 import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
+import Header from "@/components/navbarr/Header";
 import Preloader from "@/components/Preloder";
 import Lenis from 'lenis'
 import { useEffect } from "react";
@@ -19,10 +19,12 @@ export default function Home() {
   });
 
   return (
-    <main className="bg-[#e5e3e0] text-black min-h-screen w-full px-6 md:px-12 py-8">
+    <main className="bg-[#e5e3e0] text-black min-h-screen w-full">
       <Preloader />
-      <Navbar />
+      <Header />
       <Hero />
+      <div className="h-screen"></div>
+      <div className="h-screen"></div>
     </main>
   );
 }

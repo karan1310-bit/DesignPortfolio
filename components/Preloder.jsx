@@ -1,27 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import SplitType from "split-type";
 
 const Preloader = () => {
+  const refs = {
+    initial: useRef(null),
+    complete: useRef(null),
+    percentage: useRef(null),
+  };
+
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const loadingText = new SplitType(".loading-text.initial", { types: "chars" });
-    const completeText = new SplitType(".loading-text.complete", { types: "chars" });
-    const titleText = new SplitType(".hero h1", { types: "chars" });
-    const paragraphText = new SplitType(".hero p", { types: "chars" });
+    const { initial, complete, percentage } = refs;
 
-    gsap.set(".loading-text.complete", { y: "100%" });
-    gsap.set(loadingText.chars, { opacity: 0, y: 100 });
-    gsap.set(completeText.chars, { opacity: 0, y: 100 });
-
-    gsap.to(loadingText.chars, {
-      opacity: 1,
-      y: 0,
-      duration: 0.5,
-      stagger: 0.05,
-      ease: "power2.out",
-    });
+    gsap.set(initial.current, { opacity: 1, y: 0 });
+    gsap.set(complete.current, { opacity: 0, y: 30 });
 
     const tl = gsap.timeline();
 
@@ -30,34 +23,26 @@ const Preloader = () => {
       duration: 5,
       ease: "power1.inOut",
       onUpdate: function () {
-        const progress = Math.round(this.progress() * 100);
-        document.querySelector(".percentage").textContent = progress;
+        if (percentage.current) {
+          percentage.current.textContent = Math.round(this.progress() * 100);
+        }
       },
     })
-      .to(".loading-text.initial", {
-        y: "-100%",
-        duration: 0.5,
+      .to(initial.current, {
+        y: -30,
+        opacity: 0,
+        duration: 0.4,
         ease: "power2.inOut",
       })
       .to(
-        ".loading-text.complete",
+        complete.current,
         {
-          y: "0%",
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        "<"
-      )
-      .to(
-        completeText.chars,
-        {
-          opacity: 1,
           y: 0,
-          duration: 0.3,
-          stagger: 0.03,
+          opacity: 1,
+          duration: 0.4,
           ease: "power2.out",
         },
-        "<0.2"
+        "<0.1"
       )
       .to(".preloader", {
         y: "-100vh",
@@ -65,40 +50,34 @@ const Preloader = () => {
         ease: "power2.inOut",
         delay: 0.8,
       })
-      .set(
-        ".hero",
-        {
-          visibility: "visible",
-        },
-        "-=1"
-      )
-      .to(
-        [titleText.chars, paragraphText.chars],
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          stagger: 0.02,
-          ease: "power4.out",
-        },
-        "-=0.5"
-      )
-      .set(".preloader", {
-        display: "none",
-      });
+      .set(".preloader", { display: "none" });
   }, []);
 
   return (
-      <div className="preloader fixed inset-0 font-satoshi z-50 flex flex-col items-center justify-center bg-[#e5e3e0]">
-        <div className="progress-container w-[300px] h-[2px] bg-white/10 mb-2 relative z-10">
-          <div className="progress-bar absolute top-0 left-0 h-full w-0 bg-black" />
+    <div className="preloader fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#e5e3e0] font-satoshi">
+      {/* Progress bar */}
+      <div className="progress-container w-[80%] max-w-[300px] h-[2px] bg-white/10 mb-2 relative">
+        <div className="progress-bar absolute top-0 left-0 h-full w-0 bg-black" />
+      </div>
+
+      {/* Animated text */}
+      <div className="text-container relative overflow-hidden my-2 text-center uppercase tracking-tight text-base sm:text-2xl md:text-2xl lg:text-2xl leading-none w-[70%] sm:w-[250px] md:w-[300px] h-12 sm:h-14 md:h-16">
+        <div ref={refs.initial} className="absolute w-full">
+          Opening an S-rank Gate
         </div>
-        <div className="text-container relative h-16 w-[200px] overflow-hidden my-2">
-          <div className="loading-text initial font-satoshi absolute w-full text-center uppercase leading-none tracking-tight text-xl">Opening an S-rank Gate</div>
-          <div className="loading-text complete font-satoshi absolute w-full text-center uppercase tracking-tight text-xl">Quest complete</div>
+        <div ref={refs.complete} className="absolute w-full">
+          Quest complete
         </div>
-        <div className="percentage fixed bottom-8 right-8 text-[25rem] font-satoshi font-bold opacity-10 leading-[0.8]">0</div>
-        </div>
+      </div>
+
+      {/* Percentage counter */}
+      <div
+        ref={refs.percentage}
+        className="percentage fixed bottom-6 right-4 text-[12rem] sm:text-[12rem] md:text-[14rem] lg:text-[15rem] xl:text-[20rem] 2xl:text-[25rem] font-bold opacity-10 leading-[0.8]"
+      >
+        0
+      </div>
+    </div>
   );
 };
 
