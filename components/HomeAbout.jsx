@@ -35,7 +35,7 @@ const HomeAbout = () => {
         opacity: 0,
         duration: 1,
         ease: "power3.out",
-        stagger: 0.2,
+        stagger: 0.1,
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top 80%",
@@ -45,8 +45,8 @@ const HomeAbout = () => {
     }, []);
   
     return (
-      <main className="min-h-screen font-satoshi text-black px-6 sm:px-6 md:px-10 lg:px-12 py-16 sm:py-20">
-        <section ref={containerRef} className="space-y-8 sm:space-y-10">
+      <main className="min-h-fit font-satoshi text-black px-6 sm:px-6 md:px-10 lg:px-12 py-16 sm:py-20">
+        <section ref={containerRef} className="space-y-6 sm:space-y-8">
           <div className="text-base sm:text-xl font-semibold">01/</div>
 
           <div className="space-y-0">

@@ -1,6 +1,7 @@
 'use client'
 import Hero from "@/components/Hero";
 import HomeAbout from "@/components/HomeAbout";
+import HomeHobbie from "@/components/HomeHobbie";
 import Header from "@/components/navbarr/Header";
 import Preloader from "@/components/Preloder";
 import Lenis from 'lenis'
@@ -31,7 +32,7 @@ export default function Home() {
       <Header />
       <Hero />
       <HomeAbout />
-      <div className="h-screen"></div>
+      <HomeHobbie />
       <div className="h-screen"></div>
     </main>
   );
