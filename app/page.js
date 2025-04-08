@@ -1,5 +1,6 @@
 'use client'
 import Hero from "@/components/Hero";
+import HomeAbout from "@/components/HomeAbout";
 import Header from "@/components/navbarr/Header";
 import Preloader from "@/components/Preloder";
 import Lenis from 'lenis'
@@ -18,11 +19,18 @@ export default function Home() {
     requestAnimationFrame(raf);
   });
 
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 4500);
+  }, [])
+
   return (
     <main className="bg-[#e5e3e0] text-black min-h-screen w-full">
       <Preloader />
       <Header />
       <Hero />
+      <HomeAbout />
       <div className="h-screen"></div>
       <div className="h-screen"></div>
     </main>
