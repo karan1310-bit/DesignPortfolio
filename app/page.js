@@ -1,9 +1,10 @@
 'use client'
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import HomeAbout from "@/components/HomeAbout";
 import HomeHobbie from "@/components/HomeHobbie";
 import Header from "@/components/navbarr/Header";
-import Preloader from "@/components/Preloder";
+import Preloader from "@/components/Preloader";
 import Lenis from 'lenis'
 import { useEffect } from "react";
 
@@ -34,6 +35,7 @@ export default function Home() {
       <HomeAbout />
       <HomeHobbie />
       <div className="h-screen"></div>
+      <Footer />
     </main>
   );
 }
