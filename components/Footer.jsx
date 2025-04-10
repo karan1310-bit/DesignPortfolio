@@ -58,13 +58,13 @@ export default function ContactSection() {
       <a href="mailto:hello@richardekwoye.com" className="inline-block">
         <div className="flex flex-col space-y-1">
           <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
-            HELLO@
+            KFREEL
           </span>
           <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
-            RICHARD
+            ANCE131
           </span>
           <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
-            EKWONYE
+            @GMAIL
           </span>
           <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
             .COM
@@ -77,21 +77,21 @@ export default function ContactSection() {
         <h1 className="text-[10vw] sm:text-5xl md:text-7xl lg:text-9xl font-bold leading-none space-y-4">
           <div className="overflow-hidden">
             <a
-              href="mailto:hello@richardekwoye.com"
+              href="mailto:kfreelance131@gmail.com"
               className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[5px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-100"
             >
               <span ref={addToRefs} className="inline-block">
-                HELLO@RICHARD
+              KFREELANCE
               </span>
             </a>
           </div>
           <div className="overflow-hidden">
             <a
-              href="mailto:hello@richardekwoye.com"
+              href="mailto:kfreelance131@gmail.com"
               className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[5px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-100"
             >
               <span ref={addToRefs} className="inline-block">
-                EKWONYE.COM
+                @GMAIL.COM
               </span>
             </a>
           </div>
@@ -111,7 +111,7 @@ export default function ContactSection() {
         <div className="overflow-hidden">
           <p ref={addToRefs}>
             <a
-              href="https://twitter.com"
+              href="https://x.com/bhati_131?t=vnNfkKdx59cJmwNvNuOHrQ&s=09"
               target="_blank"
               rel="noopener noreferrer"
               className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
@@ -120,7 +120,7 @@ export default function ContactSection() {
             </a>
             ,
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/bhati_.01?igsh=Z3VyZjlpYjh5Znc2"
               target="_blank"
               rel="noopener noreferrer"
               className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 mx-1"
@@ -129,7 +129,7 @@ export default function ContactSection() {
             </a>
             ,
             <a
-              href="https://github.com"
+              href="https://github.com/karan1310-bit"
               target="_blank"
               rel="noopener noreferrer"
               className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
