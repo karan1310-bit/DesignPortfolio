@@ -29,7 +29,7 @@ export default function HomeHobbie() {
         stagger: 0.1,
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 80%',
+          start: 'top 90%',
           toggleActions: 'play none none none',
         },
       });
@@ -56,7 +56,7 @@ export default function HomeHobbie() {
         <div className="text-base sm:text-xl font-semibold">02/</div>
 
         <div className="text-left">
-          {['MOVIES', 'TRAVEL'].map((title, index) => (
+          {["MOVIES", "TRAVEL"].map((title, index) => (
             <div className="overflow-hidden" key={title}>
               <h1
                 ref={(el) => (lineRefs.current[index] = el)}
@@ -72,17 +72,18 @@ export default function HomeHobbie() {
             {/* Left: Image */}
             <div className="w-full sm:w-4/5 md:w-full lg:w-full">
               <div className="aspect-[1/1] md:aspect-[3/1.2] overflow-hidden">
-                <div className="w-full h-full overflow-hidden">
-                  <div ref={imageRef} className="w-full h-full">
-                    <Image
-                      src="/images/img2.png"
-                      alt="VR Gaming"
-                      width={1600}
-                      height={600}
-                      className="w-full h-full object-cover object-top"
-                      priority
-                    />
-                  </div>
+                <div
+                  ref={imageRef}
+                  className="relative w-full h-full overflow-hidden group"
+                >
+                  <Image
+                    src="/images/img2.png"
+                    alt="VR Gaming"
+                    width={1600}
+                    height={600}
+                    priority
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
+                  />
                 </div>
               </div>
             </div>

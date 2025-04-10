@@ -10,14 +10,15 @@ const Preloader = () => {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-
+  
     const { initial, complete, percentage } = refs;
-
+  
+    // Set initial states
     gsap.set(initial.current, { opacity: 1, y: 0 });
     gsap.set(complete.current, { opacity: 0, y: 30 });
-
+  
     const tl = gsap.timeline();
-
+  
     tl.to(".progress-bar", {
       width: "100%",
       duration: 4,
@@ -28,22 +29,19 @@ const Preloader = () => {
         }
       },
     })
-      .to(initial.current, {
-        y: -30,
-        opacity: 0,
-        duration: 0.4,
-        ease: "power2.inOut",
-      })
-      .to(
-        complete.current,
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.4,
-          ease: "power2.out",
-        },
-        "<0.1"
-      )
+    // FIX: Remove the overlap by sequencing animations properly
+    .to(initial.current, {
+      y: -30,
+      opacity: 0,
+      duration: 0.4,
+      ease: "power2.inOut",
+    })
+    .to(complete.current, { // Remove the "<0.1" offset
+      y: 0,
+      opacity: 1,
+      duration: 0.4,
+      ease: "power2.out",
+    })  
       .to(".preloader", {
         y: "-100vh",
         duration: 1,
@@ -63,10 +61,10 @@ const Preloader = () => {
       {/* Animated text */}
       <div className="text-container relative overflow-hidden my-2 text-center uppercase tracking-tight text-base sm:text-xl leading-none w-[70%] sm:w-[250px] md:w-[300px] h-12 sm:h-14 md:h-16">
         <div ref={refs.initial} className="absolute w-full">
-        Don’t blink
+        don’t tell anyone
         </div>
         <div ref={refs.complete} className="absolute w-full">
-        Told you not to
+        I'm Batman
         </div>
       </div>
 

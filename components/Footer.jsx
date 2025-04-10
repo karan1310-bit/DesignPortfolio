@@ -1,9 +1,153 @@
-import React from 'react'
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const Footer = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+export default function ContactSection() {
+  const containerRef = useRef(null);
+  const lineRefs = useRef([]);
+  lineRefs.current = [];
+
+  const addToRefs = (el) => {
+    if (el && !lineRefs.current.includes(el)) {
+      lineRefs.current.push(el);
+    }
+  };
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    gsap.from(lineRefs.current, {
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+  }, []);
+
   return (
-    <div>Footer</div>
-  )
-}
+    <section
+    ref={containerRef}
+    className="text-black font-satoshi px-4 py-8 sm:px-8 lg:px-12"
+  >
+    <div className="overflow-hidden">
+        <p ref={addToRefs} className="text-base sm:text-xl font-semibold">
+          04/
+        </p>
+      </div>
+    <div className="flex mb-20 mt-6 md:mt-8 justify-between items-center">
+      <div className="overflow-hidden">
+        <p ref={addToRefs} className="text-xl md:text-2xl font-medium leading-tight">
+          WANT TO WORK TOGETHER?
+        </p>
+      </div>
+      <div className="overflow-hidden">
+        <p ref={addToRefs} className="text-xl md:text-2xl font-medium leading-tight">
+          SEND ME A MESSAGE
+        </p>
+      </div></div>
 
-export default Footer
+      <div className="block sm:hidden w-[60vw] text-left">
+      <a href="mailto:hello@richardekwoye.com" className="inline-block">
+        <div className="flex flex-col space-y-1">
+          <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
+            HELLO@
+          </span>
+          <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
+            RICHARD
+          </span>
+          <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
+            EKWONYE
+          </span>
+          <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
+            .COM
+          </span>
+        </div>
+      </a>
+    </div>
+
+      <div className="group w-fit hidden sm:block">
+        <h1 className="text-[10vw] sm:text-5xl md:text-7xl lg:text-9xl font-bold leading-none space-y-4">
+          <div className="overflow-hidden">
+            <a
+              href="mailto:hello@richardekwoye.com"
+              className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[5px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-100"
+            >
+              <span ref={addToRefs} className="inline-block">
+                HELLO@RICHARD
+              </span>
+            </a>
+          </div>
+          <div className="overflow-hidden">
+            <a
+              href="mailto:hello@richardekwoye.com"
+              className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[5px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-100"
+            >
+              <span ref={addToRefs} className="inline-block">
+                EKWONYE.COM
+              </span>
+            </a>
+          </div>
+        </h1>
+      </div>
+
+    <footer className="grid grid-cols-1 sm:grid-cols-3 text-lg md:text-xl uppercase font-medium mt-20 gap-3 md:gap-8">
+      <div className="space-y-0 md:text-left">
+        <div className="overflow-hidden">
+          <p ref={addToRefs}>Karan Singh Bhati</p>
+        </div>
+        <div className="overflow-hidden">
+          <p ref={addToRefs}>Creative developer</p>
+        </div>
+      </div>
+      <div className="space-y-0 md:text-center">
+        <div className="overflow-hidden">
+          <p ref={addToRefs}>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+            >
+              Twitter
+            </a>
+            ,
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100 mx-1"
+            >
+              Instagram
+            </a>
+            ,
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
+            >
+              Github
+            </a>
+          </p>
+        </div>
+      </div>
+      <div className="space-y-0 md:text-right">
+        <div className="overflow-hidden">
+          <p ref={addToRefs}>Development Me</p>
+        </div>
+        <div className="overflow-hidden">
+          <p ref={addToRefs}>Inspiration Richard Ekwonye</p>
+        </div>
+      </div>
+    </footer>
+  </section>
+  );
+}

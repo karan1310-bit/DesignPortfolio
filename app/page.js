@@ -28,7 +28,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="bg-[#e5e3e0] text-black min-h-screen w-full">
+    <main className="bg-[#e5e3e0] text-black min-h-screen w-full overflow-hidden">
       <Preloader />
       <Header />
       <Hero />

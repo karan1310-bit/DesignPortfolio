@@ -63,18 +63,18 @@ const Hero = () => {
           {/* Aspect ratio container */}
           <div className="aspect-[1/1] md:aspect-[3/1.2] overflow-hidden">
             {/* Animation wrapper with overflow hidden */}
-            <div className="w-full h-full overflow-hidden">
-              <div ref={imageRef} className="w-full h-full">
-                <Image
-                  src="/images/img1.png"
-                  alt="Portrait of Richard"
-                  width={1600}
-                  height={600}
-                  className="w-full h-full object-cover object-top"
-                  priority
-                />
-              </div>
-            </div>
+            <div className="w-full h-full overflow-hidden group">
+  <div ref={imageRef} className="w-full h-full">
+    <Image
+      src="/images/img1.png"
+      alt="Portrait of Richard"
+      width={1600}
+      height={600}
+      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
+      priority
+    />
+  </div>
+</div>
           </div>
         </div>
 
