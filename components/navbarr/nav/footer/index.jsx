@@ -34,7 +34,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          karanbhati1310@gmail.com
+          kfreelance131@gmail.com
         </motion.li>
         <motion.li
           custom={[0.3, 0]}

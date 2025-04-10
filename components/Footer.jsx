@@ -55,17 +55,15 @@ export default function ContactSection() {
       </div></div>
 
       <div className="block sm:hidden w-[60vw] text-left">
-      <a href="mailto:hello@richardekwoye.com" className="inline-block">
+      <a href="mailto:kfreelance131@gmail.com" className="inline-block">
         <div className="flex flex-col space-y-1">
           <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
-            KFREEL
+            KFREELANCE
           </span>
           <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
-            ANCE131
+            131@GMAIL
           </span>
-          <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
-            @GMAIL
-          </span>
+          
           <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
             .COM
           </span>
