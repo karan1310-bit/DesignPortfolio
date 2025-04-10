@@ -5,6 +5,7 @@ import HomeAbout from "@/components/HomeAbout";
 import HomeHobbie from "@/components/HomeHobbie";
 import Header from "@/components/navbarr/Header";
 import Preloader from "@/components/Preloader";
+import RecentProject from "@/components/RecentProject";
 import Lenis from 'lenis'
 import { useEffect } from "react";
 
@@ -34,7 +35,7 @@ export default function Home() {
       <Hero />
       <HomeAbout />
       <HomeHobbie />
-      <div className="h-screen"></div>
+      <RecentProject />
       <Footer />
     </main>
   );

@@ -42,13 +42,13 @@ export default function ContactSection() {
           04/
         </p>
       </div>
-    <div className="flex mb-20 mt-6 md:mt-8 justify-between items-center">
+    <div className="flex mb-12 md:mb-20 mt-6 md:mt-8 justify-between items-center">
       <div className="overflow-hidden">
         <p ref={addToRefs} className="text-xl md:text-2xl font-medium leading-tight">
           WANT TO WORK TOGETHER?
         </p>
       </div>
-      <div className="overflow-hidden">
+      <div className="hidden sm:block overflow-hidden">
         <p ref={addToRefs} className="text-xl md:text-2xl font-medium leading-tight">
           SEND ME A MESSAGE
         </p>
@@ -58,12 +58,14 @@ export default function ContactSection() {
       <a href="mailto:kfreelance131@gmail.com" className="inline-block">
         <div className="flex flex-col space-y-1">
           <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
-            KFREELANCE
+            KWORK
           </span>
           <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
-            131@GMAIL
+            131
           </span>
-          
+          <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
+            @GMAIL
+          </span>
           <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
             .COM
           </span>
@@ -96,7 +98,7 @@ export default function ContactSection() {
         </h1>
       </div>
 
-    <footer className="grid grid-cols-1 sm:grid-cols-3 text-lg md:text-xl uppercase font-medium mt-20 gap-3 md:gap-8">
+    <footer className="grid grid-cols-1 sm:grid-cols-3 text-lg md:text-xl uppercase font-medium mt-16 md:mt-20 gap-4 md:gap-8">
       <div className="space-y-0 md:text-left">
         <div className="overflow-hidden">
           <p ref={addToRefs}>Karan Singh Bhati</p>
