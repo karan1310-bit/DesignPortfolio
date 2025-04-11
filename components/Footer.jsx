@@ -35,14 +35,14 @@ export default function ContactSection() {
   return (
     <section
     ref={containerRef}
-    className="text-black font-satoshi px-4 py-8 sm:px-8 lg:px-12"
+    className="text-black font-satoshi px-4 sm:px-8 py-8 lg:px-12"
   >
     <div className="overflow-hidden">
         <p ref={addToRefs} className="text-base sm:text-xl font-semibold">
           04/
         </p>
       </div>
-    <div className="flex mb-12 md:mb-20 mt-6 md:mt-8 justify-between items-center">
+    <div className="flex mb-8 md:mb-20 mt-6 md:mt-8 justify-between items-center">
       <div className="overflow-hidden">
         <p ref={addToRefs} className="text-lg md:text-2xl font-semibold leading-tight">
           WANT TO WORK TOGETHER?
@@ -98,7 +98,7 @@ export default function ContactSection() {
         </h1>
       </div>
 
-    <footer className="grid grid-cols-1 sm:grid-cols-3 text-base md:text-lg uppercase font-medium mt-16 md:mt-20 gap-4 md:gap-8">
+    <footer className="grid grid-cols-1 sm:grid-cols-3 text-base md:text-lg uppercase font-medium mt-12 md:mt-20 gap-4 md:gap-8">
       <div className="space-y-0 md:text-left">
         <div className="overflow-hidden">
           <p ref={addToRefs}>Karan Singh Bhati</p>

@@ -54,7 +54,7 @@ const Preloader = () => {
   return (
     <div className="preloader fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#e5e3e0] font-satoshi">
       {/* Progress bar */}
-      <div className="progress-container w-[80%] max-w-[300px] h-[2px] bg-white/10 mb-2 relative">
+      <div className="progress-container w-[80%] max-w-[300px] h-[1px] md:h-[2px] bg-white/10 mb-2 relative">
         <div className="progress-bar absolute top-0 left-0 h-full w-0 bg-black" />
       </div>
 
@@ -71,7 +71,7 @@ const Preloader = () => {
       {/* Percentage counter */}
       <div
         ref={refs.percentage}
-        className="percentage fixed bottom-6 right-4 text-[11rem] sm:text-[11rem] md:text-[13rem] lg:text-[14rem] xl:text-[20rem] 2xl:text-[22rem] font-bold opacity-10 leading-[0.8]"
+        className="percentage fixed bottom-6 right-4 text-[7rem] sm:text-[8rem] md:text-[9rem] lg:text-[10rem] xl:text-[14rem] 2xl:text-[16rem] font-bold opacity-10 leading-[0.8]"
       >
         0
       </div>

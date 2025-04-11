@@ -9,9 +9,9 @@ const HomeAbout = () => {
   
     const h1Lines = [
       "PASSIONATE ABOUT WEB TECHNOLOGIES. I LOVE",
-      "CRAFTING VISUAL INTERFACES THAT FLOW",
-      "I MERGE CREATIVE VISION WITH PURPOSEFUL DESIGN",
-      "TO DELIVER FLUID, UNFORGETTABLE EXPERIENCES."
+      "CRAFTING VISUAL INTERFACES THAT FLOW. I MERGE",
+      "CREATIVE VISION WITH PURPOSEFUL DESIGN TO",
+      "DELIVER FLUID, UNFORGETTABLE EXPERIENCES."
     ];
   
     const pLines = [
@@ -45,7 +45,7 @@ const HomeAbout = () => {
     }, []);
   
     return (
-      <main className="min-h-fit font-satoshi text-black px-4 sm:px-6 md:px-10 lg:px-12 py-16 sm:py-20">
+      <main className="min-h-fit font-satoshi text-black px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-20">
         <section ref={containerRef} className="space-y-6 sm:space-y-8">
           <div className="text-base sm:text-xl font-semibold">01/</div>
 
@@ -54,7 +54,7 @@ const HomeAbout = () => {
               <div key={index} className="overflow-hidden">
                 <h1
                   ref={(el) => (lineRefs.current[index] = el)}
-                  className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-none"
+                  className="w-[85vw] sm:w-full text-lg sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight md:leading-none"
                 >
                   {line}
                 </h1>
@@ -67,7 +67,7 @@ const HomeAbout = () => {
               <div key={index} className="overflow-hidden">
                 <p
                   ref={(el) => (lineRefs.current[index + h1Lines.length] = el)}
-                  className="text-base sm:text-lg md:text-xl"
+                  className="text-base sm:text-lg md:text-xl leading-snug"
                 >
                   {line}
                 </p>
@@ -78,7 +78,7 @@ const HomeAbout = () => {
           <section className="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-10 pt-2 sm:pt-12">
             <div className="overflow-hidden">
               <div
-                className="text-base sm:text-3xl uppercase font-semibold mb-4 md:mb-0"
+                className="text-base sm:text-3xl uppercase leading-tight lg:leading-none font-semibold mb-4 md:mb-0"
                 ref={(el) =>
                   (lineRefs.current[h1Lines.length + pLines.length] = el)
                 }
@@ -87,11 +87,11 @@ const HomeAbout = () => {
               </div>
             </div>
 
-            <div className="md:col-span-2 space-y-2 md:space-y-3">
+            <div className="md:col-span-2 space-y-3 md:space-y-3">
               {aboutParagraphs.map((para, index) => (
                 <div key={index} className="overflow-hidden">
                   <p
-                    className="text-sm sm:text-base md:text-xl"
+                    className="w-[80vw] sm:w-full text-sm sm:text-base md:text-xl leading-snug"
                     ref={(el) =>
                       (lineRefs.current[
                         index + h1Lines.length + pLines.length + 1
@@ -114,7 +114,7 @@ const HomeAbout = () => {
                         aboutParagraphs.length
                     ] = el)
                   }
-                  className="inline-block relative text-black pb-1 font-medium uppercase text-sm sm:text-xl group"
+                  className="inline-block relative text-black pb-1 font-normal lg:font-semibold uppercase text-sm sm:text-xl group"
                   >
                     More about me and services
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>

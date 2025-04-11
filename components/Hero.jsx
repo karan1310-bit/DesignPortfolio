@@ -59,7 +59,7 @@ const Hero = () => {
 
       <div className="mt-6 md:mt-10 flex flex-col md:flex-row items-start gap-8 md:gap-16 lg:gap-24">
         {/* Image Section */}
-        <div className="w-3/4 md:w-1/2">
+        <div className="w-[80vw] md:w-1/2">
           {/* Aspect ratio container */}
           <div className="aspect-[1/1] md:aspect-[3/1.2] overflow-hidden">
             {/* Animation wrapper with overflow hidden */}
@@ -98,12 +98,12 @@ const Hero = () => {
         </div>
 
         {/* Text Section */}
-        <div className="w-full md:w-1/2 flex flex-col md:gap-2 leading-tight">
+        <div className="w-[85vw] sm:w-1/2 flex flex-col md:gap-2 leading-tight">
           {paragraphLines.map((line, i) => (
             <div key={i} className="overflow-hidden">
               <p
                 ref={(el) => (lineRefs.current[headingLines.length + i] = el)}
-                className="text-xl md:text-base lg:text-xl font-semibold leading-none lg:leading-none uppercase"
+                className="text-lg md:text-base lg:text-2xl font-semibold leading-tight lg:leading-none uppercase"
               >
                 {line}
               </p>

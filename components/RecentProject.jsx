@@ -52,13 +52,13 @@ export default function RecentProject() {
     >
       <div className="text-base sm:text-xl font-semibold">03/</div>
 
-      <div className="flex max-w-9xl md:max-w-5xl justify-between text-base leading-tight mt-4 md:mt-8 sm:text-xl lg:text-2xl uppercase font-semibold">
+      <div className="flex max-w-9xl md:max-w-5xl justify-between text-base leading-tight mt-6 md:mt-8 sm:text-xl lg:text-2xl uppercase font-semibold">
         <span ref={(el) => (lineRefs.current[0] = el)}>Recent Freelance Projects</span>
         <span ref={(el) => (lineRefs.current[1] = el)}>Creative Development</span>
       </div>
 
       {/* Project 1 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-8 mt-12 md:mt-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center w-[80vw] sm:w-full gap-8 md:gap-0 mt-12 md:mt-16">
         <div className="space-y-0 md:space-y-1">
           {['SLEEK', 'FRAME'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
@@ -85,7 +85,7 @@ export default function RecentProject() {
         {/* Image w/ scroll + hover animation */}
         <div
           ref={imageRef1}
-          className="group relative w-full aspect-[21/9] overflow-hidden"
+          className="group relative w-full aspect-[1/1] md:aspect-[21/9] overflow-hidden"
         >
           <Image
             src="/images/2.png"
@@ -97,7 +97,7 @@ export default function RecentProject() {
       </div>
 
       {/* Project 2 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-8 mt-8 md:mt-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center w-[80vw] sm:w-full gap-8 md:gap-0 mt-12 md:mt-16">
         <div className="space-y-0 md:space-y-1">
           {['DISCO', 'DEN'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
@@ -124,7 +124,7 @@ export default function RecentProject() {
         {/* Image w/ scroll + hover animation */}
         <div
           ref={imageRef2}
-          className="group relative w-full aspect-[21/9] overflow-hidden"
+          className="group relative w-full aspect-[1/1] sm:aspect-[21/9] overflow-hidden"
         >
           <Image
             src="/images/1.jpg"
