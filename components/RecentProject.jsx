@@ -58,7 +58,7 @@ export default function RecentProject() {
       </div>
 
       {/* Project 1 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center w-[80vw] sm:w-full gap-8 md:gap-0 mt-12 md:mt-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center w-[80vw] sm:w-full gap-8 md:gap-0 mt-8 md:mt-16">
         <div className="space-y-0 md:space-y-1">
           {['SLEEK', 'FRAME'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
@@ -97,7 +97,7 @@ export default function RecentProject() {
       </div>
 
       {/* Project 2 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center w-[80vw] sm:w-full gap-8 md:gap-0 mt-12 md:mt-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center w-[80vw] sm:w-full gap-8 md:gap-0 mt-8 md:mt-16">
         <div className="space-y-0 md:space-y-1">
           {['DISCO', 'DEN'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
