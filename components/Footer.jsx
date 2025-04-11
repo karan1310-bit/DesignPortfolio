@@ -44,12 +44,12 @@ export default function ContactSection() {
       </div>
     <div className="flex mb-12 md:mb-20 mt-6 md:mt-8 justify-between items-center">
       <div className="overflow-hidden">
-        <p ref={addToRefs} className="text-xl md:text-2xl font-medium leading-tight">
+        <p ref={addToRefs} className="text-lg md:text-2xl font-semibold leading-tight">
           WANT TO WORK TOGETHER?
         </p>
       </div>
       <div className="hidden sm:block overflow-hidden">
-        <p ref={addToRefs} className="text-xl md:text-2xl font-medium leading-tight">
+        <p ref={addToRefs} className="text-xl md:text-2xl font-semibold leading-tight">
           SEND ME A MESSAGE
         </p>
       </div></div>
@@ -98,7 +98,7 @@ export default function ContactSection() {
         </h1>
       </div>
 
-    <footer className="grid grid-cols-1 sm:grid-cols-3 text-lg md:text-xl uppercase font-medium mt-16 md:mt-20 gap-4 md:gap-8">
+    <footer className="grid grid-cols-1 sm:grid-cols-3 text-base md:text-lg uppercase font-medium mt-16 md:mt-20 gap-4 md:gap-8">
       <div className="space-y-0 md:text-left">
         <div className="overflow-hidden">
           <p ref={addToRefs}>Karan Singh Bhati</p>

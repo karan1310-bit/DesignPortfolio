@@ -50,7 +50,7 @@ export default function HomeHobbie() {
   }, []);
 
   return (
-    <main className="font-satoshi min-h-fit text-black px-6 sm:px-6 md:px-10 lg:px-12 py-0 sm:py-2">
+    <main className="font-satoshi min-h-fit text-black px-4 sm:px-6 md:px-10 lg:px-12 py-0 sm:py-2">
       {/* Hero Section */}
       <section ref={containerRef} className="space-y-6 sm:space-y-10 max-w-7xl">
         <div className="text-base sm:text-xl font-semibold">02/</div>
@@ -89,8 +89,8 @@ export default function HomeHobbie() {
             </div>
 
             {/* Right: Paragraph */}
-            <div className="overflow-hidden flex text-left items-start">
-              <p className="text-base sm:text-lg md:text-xl leading-tight">
+            <div className="overflow-hidden flex text-left items-start max-w-xs md:max-w-2xl lg:max-w-3xl">
+              <p className="text-base sm:text-lg md:text-xl uppercase leading-tight">
                 {paragraphLines.map((line, i) => (
                   <span
                     key={i}

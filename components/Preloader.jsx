@@ -59,7 +59,7 @@ const Preloader = () => {
       </div>
 
       {/* Animated text */}
-      <div className="text-container relative overflow-hidden my-2 text-center uppercase tracking-tight text-base sm:text-xl leading-none w-[70%] sm:w-[250px] md:w-[300px] h-12 sm:h-14 md:h-16">
+      <div className="text-container relative overflow-hidden my-2 text-center uppercase tracking-tight text-sm sm:text-xl leading-none w-[70%] sm:w-[250px] md:w-[300px] h-12 sm:h-14 md:h-16">
         <div ref={refs.initial} className="absolute w-full">
         don’t tell anyone
         </div>

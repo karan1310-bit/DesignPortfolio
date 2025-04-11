@@ -48,18 +48,18 @@ export default function RecentProject() {
   return (
     <section
       ref={containerRef}
-      className="font-satoshi min-h-screen w-full px-6 md:px-10 lg:px-12 py-16 sm:py-20"
+      className="font-satoshi min-h-screen w-full px-4 sm:px-6 md:px-10 lg:px-12 py-16 sm:py-20"
     >
       <div className="text-base sm:text-xl font-semibold">03/</div>
 
-      <div className="flex max-w-7xl md:max-w-5xl justify-between text-xl mt-8 md:text-2xl uppercase font-semibold">
+      <div className="flex max-w-7xl md:max-w-5xl justify-between text-lg leading-tight mt-8 md:text-2xl uppercase font-semibold">
         <span ref={(el) => (lineRefs.current[0] = el)}>Recent Freelance Projects</span>
         <span ref={(el) => (lineRefs.current[1] = el)}>Creative Development</span>
       </div>
 
       {/* Project 1 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-8 mt-12 md:mt-16">
-        <div className="space-y-4">
+        <div className="space-y-0 md:space-y-1">
           {['SLEEK', 'FRAME'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
               <h1
@@ -67,7 +67,7 @@ export default function RecentProject() {
                 className="text-[3rem] md:text-[6rem] leading-none font-bold tracking-tight"
               >
                 <span className="group relative inline-block pt-2">
-                  <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[4px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">
+                  <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:h-[3px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">
                     {text}
                   </span>
                 </span>
@@ -76,7 +76,7 @@ export default function RecentProject() {
           ))}
           <p
             ref={(el) => (lineRefs.current[4] = el)}
-            className="text-base max-w-sm font-medium pt-2 md:pt-4 uppercase"
+            className="text-base md:text-lg max-w-sm font-medium pt-2 md:pt-4 uppercase"
           >
             A Design Agency
           </p>
@@ -98,7 +98,7 @@ export default function RecentProject() {
 
       {/* Project 2 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-8 mt-12 md:mt-16">
-        <div className="space-y-4">
+        <div className="space-y-0 md:space-y-1">
           {['DISCO', 'DEN'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
               <h1
@@ -106,7 +106,7 @@ export default function RecentProject() {
                 className="text-[3rem] md:text-[6rem] leading-none font-bold tracking-tight"
               >
                 <span className="group relative inline-block pt-2">
-                  <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[4px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">
+                  <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] md:after:h-[3px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">
                     {text}
                   </span>
                 </span>
@@ -115,7 +115,7 @@ export default function RecentProject() {
           ))}
           <p
             ref={(el) => (lineRefs.current[7] = el)}
-            className="text-base max-w-sm font-medium pt-2 md:pt-4 uppercase"
+            className="text-base md:text-lg max-w-sm font-medium pt-2 md:pt-4 uppercase"
           >
             An Inflatable Nightclub
           </p>

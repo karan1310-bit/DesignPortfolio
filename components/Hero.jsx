@@ -45,7 +45,7 @@ const Hero = () => {
   const mobileName = "Karan";
 
   return (
-    <section className="pt-24 md:pt-28 px-6 sm:px-6 md:px-10 lg:px-12 font-satoshi">
+    <section className="pt-20 md:pt-28 px-4 sm:px-6 md:px-10 lg:px-12 font-satoshi">
       {/* Heading */}
       <div className="text-[15vw] sm:text-[10vw] md:text-[8vw] lg:text-[9.5vw] xl:text-[9.5vw] font-bold leading-[0.9]">
         {headingLines.map((line, index) => (
@@ -64,17 +64,17 @@ const Hero = () => {
           <div className="aspect-[1/1] md:aspect-[3/1.2] overflow-hidden">
             {/* Animation wrapper with overflow hidden */}
             <div className="w-full h-full overflow-hidden group">
-  <div ref={imageRef} className="w-full h-full">
-    <Image
-      src="/images/img1.png"
-      alt="Portrait of Richard"
-      width={1600}
-      height={600}
-      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
-      priority
-    />
-  </div>
-</div>
+              <div ref={imageRef} className="w-full h-full">
+                <Image
+                  src="/images/img1.png"
+                  alt="Portrait of Richard"
+                  width={1600}
+                  height={600}
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -103,7 +103,7 @@ const Hero = () => {
             <div key={i} className="overflow-hidden">
               <p
                 ref={(el) => (lineRefs.current[headingLines.length + i] = el)}
-                className="text-xl md:text-base lg:text-xl font-medium leading-tight lg:leading-none uppercase"
+                className="text-xl md:text-base lg:text-xl font-semibold leading-none lg:leading-none uppercase"
               >
                 {line}
               </p>

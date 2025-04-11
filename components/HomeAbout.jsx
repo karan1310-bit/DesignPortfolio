@@ -45,7 +45,7 @@ const HomeAbout = () => {
     }, []);
   
     return (
-      <main className="min-h-fit font-satoshi text-black px-6 sm:px-6 md:px-10 lg:px-12 py-16 sm:py-20">
+      <main className="min-h-fit font-satoshi text-black px-4 sm:px-6 md:px-10 lg:px-12 py-16 sm:py-20">
         <section ref={containerRef} className="space-y-6 sm:space-y-8">
           <div className="text-base sm:text-xl font-semibold">01/</div>
 
@@ -114,7 +114,7 @@ const HomeAbout = () => {
                         aboutParagraphs.length
                     ] = el)
                   }
-                  className="inline-block relative text-black pb-1 font-medium text-sm sm:text-xl group"
+                  className="inline-block relative text-black pb-1 font-medium uppercase text-sm sm:text-xl group"
                   >
                     More about me and services
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
