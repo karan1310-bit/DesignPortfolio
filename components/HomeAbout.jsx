@@ -54,7 +54,7 @@ const HomeAbout = () => {
               <div key={index} className="overflow-hidden">
                 <h1
                   ref={(el) => (lineRefs.current[index] = el)}
-                  className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-none"
+                  className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-none"
                 >
                   {line}
                 </h1>

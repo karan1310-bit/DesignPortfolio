@@ -48,11 +48,11 @@ export default function RecentProject() {
   return (
     <section
       ref={containerRef}
-      className="font-satoshi min-h-screen w-full px-4 sm:px-6 md:px-10 lg:px-12 py-16 sm:py-20"
+      className="font-satoshi min-h-screen w-full px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-20"
     >
       <div className="text-base sm:text-xl font-semibold">03/</div>
 
-      <div className="flex max-w-7xl md:max-w-5xl justify-between text-lg leading-tight mt-8 md:text-2xl uppercase font-semibold">
+      <div className="flex max-w-9xl md:max-w-5xl justify-between text-base leading-tight mt-4 md:mt-8 sm:text-xl lg:text-2xl uppercase font-semibold">
         <span ref={(el) => (lineRefs.current[0] = el)}>Recent Freelance Projects</span>
         <span ref={(el) => (lineRefs.current[1] = el)}>Creative Development</span>
       </div>
@@ -64,7 +64,7 @@ export default function RecentProject() {
             <div className="overflow-hidden" key={text}>
               <h1
                 ref={(el) => (lineRefs.current[2 + idx] = el)}
-                className="text-[3rem] md:text-[6rem] leading-none font-bold tracking-tight"
+                className="text-[clamp(2.5rem,8vw,6rem)] leading-none font-bold tracking-tight"
               >
                 <span className="group relative inline-block pt-2">
                   <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:h-[3px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">
@@ -97,13 +97,13 @@ export default function RecentProject() {
       </div>
 
       {/* Project 2 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-8 mt-12 md:mt-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 md:gap-8 mt-8 md:mt-12">
         <div className="space-y-0 md:space-y-1">
           {['DISCO', 'DEN'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
               <h1
                 ref={(el) => (lineRefs.current[5 + idx] = el)}
-                className="text-[3rem] md:text-[6rem] leading-none font-bold tracking-tight"
+                className="text-[clamp(2.5rem,8vw,6rem)] leading-none font-bold tracking-tight"
               >
                 <span className="group relative inline-block pt-2">
                   <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] md:after:h-[3px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">

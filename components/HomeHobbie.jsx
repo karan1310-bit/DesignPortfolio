@@ -70,7 +70,7 @@ export default function HomeHobbie() {
           {/* Image + Paragraph */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start my-4 md:my-6">
             {/* Left: Image */}
-            <div className="w-full sm:w-4/5 md:w-full lg:w-full">
+            <div className="w-3/4 sm:w-4/5 md:w-full lg:w-full">
               <div className="aspect-[1/1] md:aspect-[3/1.2] overflow-hidden">
                 <div
                   ref={imageRef}
@@ -90,7 +90,7 @@ export default function HomeHobbie() {
 
             {/* Right: Paragraph */}
             <div className="overflow-hidden flex text-left items-start max-w-xs md:max-w-2xl lg:max-w-3xl">
-              <p className="text-base sm:text-lg md:text-xl uppercase leading-tight">
+              <p className="text-base sm:text-lg md:text-base lg:text-xl uppercase leading-tight">
                 {paragraphLines.map((line, i) => (
                   <span
                     key={i}
