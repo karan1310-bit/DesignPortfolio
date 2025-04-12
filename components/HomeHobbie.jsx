@@ -4,22 +4,22 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 export default function HomeHobbie() {
   const lineRefs = useRef([]);
   const containerRef = useRef(null);
   const imageRef = useRef(null);
+  const filmmakingRef = useRef(null);
 
-  // Paragraph lines
   const paragraphLines = [
     'My hobbies take up a good portion of my leisure time.',
-    "Escaping reality, one anime or movie at a time..",
-    'Usually somewhere between reality and a playlist, just vibing.',
-    'Wanderlust isn’t just a word, it’s my default setting.',
+    "whether it's anime marathons or movie binges, I’m in.",
+    'Somewhere between playlists and packing lists, you’ll',
+    'find me filming travel chaos and calling it "cinematic.',
   ];
 
   useEffect(() => {
-    // Run animation after all DOM nodes are in place
     setTimeout(() => {
       gsap.from(lineRefs.current, {
         y: 150,
@@ -47,6 +47,36 @@ export default function HomeHobbie() {
         delay: 0.3,
       });
     }, 0);
+
+    const el = filmmakingRef.current;
+    if (el) {
+      let interval;
+      const runScramble = () => {
+        let iteration = 0;
+        const originalText = el.dataset.value;
+
+        clearInterval(interval);
+        interval = setInterval(() => {
+          el.innerText = originalText
+            .split("")
+            .map((letter, index) => {
+              if (index < iteration) return originalText[index];
+              return letters[Math.floor(Math.random() * 26)];
+            })
+            .join("");
+
+          if (iteration >= originalText.length) {
+            clearInterval(interval);
+          }
+
+          iteration += 1 / 2; // even faster
+        }, 30); // faster frame rate
+      };
+
+      runScramble();
+      const repeat = setInterval(runScramble, 5000);
+      return () => clearInterval(repeat);
+    }
   }, []);
 
   return (
@@ -106,10 +136,14 @@ export default function HomeHobbie() {
 
           <div className="overflow-hidden hidden md:block">
             <h1
-              ref={(el) => (lineRefs.current[paragraphLines.length + 2] = el)}
+              ref={(el) => {
+                lineRefs.current[paragraphLines.length + 2] = el;
+                filmmakingRef.current = el;
+              }}
+              data-value="FILMMAKING"
               className="text-[clamp(2.5rem,8vw,6rem)] font-bold leading-snug"
             >
-              MUSIC
+              FILMMAKING
             </h1>
           </div>
         </div>

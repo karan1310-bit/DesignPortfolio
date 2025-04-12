@@ -3,10 +3,13 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { BsArrowDown } from "react-icons/bs";
 
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 const Hero = () => {
   const lineRefs = useRef([]);
   const arrowRefs = useRef([]);
   const imageRef = useRef(null);
+  const developerRef = useRef(null);
 
   useEffect(() => {
     gsap.from(lineRefs.current, {
@@ -28,15 +31,43 @@ const Hero = () => {
     });
 
     gsap.from(imageRef.current, {
-      y: 150, // 👈 comes from below
+      y: 150,
       opacity: 0,
       duration: 1.5,
       ease: "power3.out",
       delay: 6.2,
     });
-  }, []);
 
-  
+    // Scrambling effect for DEVELOPER
+    const el = developerRef.current;
+    if (el) {
+      let interval;
+      const runScramble = () => {
+        let iteration = 0;
+        const originalText = el.dataset.value;
+
+        clearInterval(interval);
+        interval = setInterval(() => {
+          el.innerText = originalText
+            .split("")
+            .map((letter, index) => {
+              if (index < iteration) return originalText[index];
+              return letters[Math.floor(Math.random() * 26)];
+            })
+            .join("");
+
+          if (iteration >= originalText.length) {
+            clearInterval(interval);
+          }
+          iteration += 1 / 2; // even faster
+        }, 30); // faster frame rate
+      };
+
+      runScramble();
+      const repeat = setInterval(runScramble, 5000);
+      return () => clearInterval(repeat);
+    }
+  }, []);
 
   const headingLines = ["CREATIVE", "DEVELOPER"];
   const paragraphLines = [
@@ -47,16 +78,26 @@ const Hero = () => {
   const mobileName = "Karan";
 
   return (
-    <section className="pt-20 md:pt-28 px-4 sm:px-6 md:px-10 lg:px-12 font-satoshi">
+    <section className="pt-24 md:pt-28 px-4 sm:px-6 md:px-10 lg:px-12 font-satoshi">
       {/* Heading */}
       <div className="text-[15vw] sm:text-[10vw] md:text-[8vw] lg:text-[9.5vw] xl:text-[9.5vw] font-bold leading-[0.9]">
-        {headingLines.map((line, index) => (
-          <div key={index} className="overflow-hidden">
-            <h1 ref={(el) => (lineRefs.current[index] = el)} className="block">
-              {line}
-            </h1>
-          </div>
-        ))}
+        <div className="overflow-hidden">
+          <h1 ref={(el) => (lineRefs.current[0] = el)} className="block">
+            CREATIVE
+          </h1>
+        </div>
+        <div className="overflow-hidden">
+          <h1
+            ref={(el) => {
+              lineRefs.current[1] = el;
+              developerRef.current = el;
+            }}
+            data-value="DEVELOPER"
+            className="block"
+          >
+            DEVELOPER
+          </h1>
+        </div>
       </div>
 
       <div className="mt-6 md:mt-10 flex flex-col md:flex-row items-start gap-8 md:gap-16 lg:gap-24">

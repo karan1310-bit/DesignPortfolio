@@ -10,11 +10,9 @@ gsap.registerPlugin(ScrollTrigger);
 export default function RecentProject() {
   const lineRefs = useRef([]);
   const containerRef = useRef(null);
-  const imageRef1 = useRef(null);
-  const imageRef2 = useRef(null);
+  const imageRefs = useRef([]);
 
   useEffect(() => {
-    // Animate text lines
     gsap.from(lineRefs.current, {
       y: 150,
       opacity: 0,
@@ -28,17 +26,16 @@ export default function RecentProject() {
       },
     });
 
-    // Animate images on scroll (no parallax)
-    [imageRef1, imageRef2].forEach((ref) => {
-      if (!ref.current) return;
-      gsap.from(ref.current, {
+    imageRefs.current.forEach((ref) => {
+      if (!ref) return;
+      gsap.from(ref, {
         y: 150,
         opacity: 0,
-        duration: 1,
+        duration: 1.2,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: ref.current,
-          start: 'top 80%',
+          trigger: ref,
+          start: 'top 85%',
           toggleActions: 'play none none none',
         },
       });
@@ -50,11 +47,19 @@ export default function RecentProject() {
       ref={containerRef}
       className="font-satoshi min-h-screen w-full px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-20"
     >
-      <div className="text-base sm:text-xl font-semibold">03/</div>
+      <div className="overflow-hidden">
+        <p ref={(el) => (lineRefs.current[0] = el)} className="text-base sm:text-xl font-semibold">
+          03/
+        </p>
+      </div>
 
       <div className="flex max-w-9xl md:max-w-5xl justify-between text-base leading-tight mt-6 md:mt-8 sm:text-xl lg:text-2xl uppercase font-semibold">
-        <span ref={(el) => (lineRefs.current[0] = el)}>Recent Freelance Projects</span>
-        <span ref={(el) => (lineRefs.current[1] = el)}>Creative Development</span>
+        <div className="overflow-hidden">
+          <span ref={(el) => (lineRefs.current[1] = el)}>Recent Freelance Projects</span>
+        </div>
+        <div className="overflow-hidden">
+          <span ref={(el) => (lineRefs.current[2] = el)}>Creative Development</span>
+        </div>
       </div>
 
       {/* Project 1 */}
@@ -63,37 +68,40 @@ export default function RecentProject() {
           {['SLEEK', 'FRAME'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
               <h1
-                ref={(el) => (lineRefs.current[2 + idx] = el)}
+                ref={(el) => (lineRefs.current[3 + idx] = el)}
                 className="text-[clamp(2.5rem,8vw,6rem)] leading-none font-bold tracking-tight"
               >
                 <span className="group relative inline-block pt-2">
-                  <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:h-[3px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">
+                  <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">
                     {text}
                   </span>
                 </span>
               </h1>
             </div>
           ))}
-          <p
-            ref={(el) => (lineRefs.current[4] = el)}
-            className="text-base md:text-lg max-w-sm font-medium pt-2 md:pt-4 uppercase"
-          >
-            A Design Agency
-          </p>
+          <div className="overflow-hidden">
+            <p
+              ref={(el) => (lineRefs.current[5] = el)}
+              className="text-base md:text-lg max-w-sm font-medium pt-2 md:pt-4 uppercase"
+            >
+              A Design Agency
+            </p>
+          </div>
         </div>
 
-        {/* Image w/ scroll + hover animation */}
-        <div
-          ref={imageRef1}
-          className="group relative w-full aspect-[1/1] md:aspect-[21/9] overflow-hidden"
-        >
-          <Image
-            src="/images/2.png"
-            alt="Sleek Frame Image"
-            fill
-            sizes="(max-width: 768px) 100vw, 80vw"
-            className="w-full h-full object-cover object-bottom transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
-          />
+        <div className="overflow-hidden">
+          <div
+            ref={(el) => (imageRefs.current[0] = el)}
+            className="group relative w-full aspect-[1/1] md:aspect-[21/9] overflow-hidden"
+          >
+            <Image
+              src="/images/2.png"
+              alt="Sleek Frame Image"
+              fill
+              sizes="(max-width: 768px) 100vw, 80vw"
+              className="w-full h-full object-cover object-bottom transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
+            />
+          </div>
         </div>
       </div>
 
@@ -103,37 +111,40 @@ export default function RecentProject() {
           {['DISCO', 'DEN'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
               <h1
-                ref={(el) => (lineRefs.current[5 + idx] = el)}
+                ref={(el) => (lineRefs.current[6 + idx] = el)}
                 className="text-[clamp(2.5rem,8vw,6rem)] leading-none font-bold tracking-tight"
               >
                 <span className="group relative inline-block pt-2">
-                  <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] md:after:h-[3px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">
+                  <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">
                     {text}
                   </span>
                 </span>
               </h1>
             </div>
           ))}
-          <p
-            ref={(el) => (lineRefs.current[7] = el)}
-            className="text-base md:text-lg max-w-sm font-medium pt-2 md:pt-4 uppercase"
-          >
-            An Inflatable Nightclub
-          </p>
+          <div className="overflow-hidden">
+            <p
+              ref={(el) => (lineRefs.current[8] = el)}
+              className="text-base md:text-lg max-w-sm font-medium pt-2 md:pt-4 uppercase"
+            >
+              An Inflatable Nightclub
+            </p>
+          </div>
         </div>
 
-        {/* Image w/ scroll + hover animation */}
-        <div
-          ref={imageRef2}
-          className="group relative w-full aspect-[1/1] sm:aspect-[21/9] overflow-hidden"
-        >
-          <Image
-            src="/images/1.jpg"
-            alt="Disco Den Image"
-            fill
-            sizes="(max-width: 768px) 100vw, 80vw"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
-          />
+        <div className="overflow-hidden">
+          <div
+            ref={(el) => (imageRefs.current[1] = el)}
+            className="group relative w-full aspect-[1/1] sm:aspect-[21/9] overflow-hidden"
+          >
+            <Image
+              src="/images/1.jpg"
+              alt="Disco Den Image"
+              fill
+              sizes="(max-width: 768px) 100vw, 80vw"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
+            />
+          </div>
         </div>
       </div>
     </section>

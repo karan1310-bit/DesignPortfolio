@@ -151,9 +151,6 @@ export default function ContactSection() {
         <div className="overflow-hidden">
           <p ref={addToRefs}>Development Me</p>
         </div>
-        <div className="overflow-hidden">
-          <p ref={addToRefs}>Inspiration Richard Ekwonye</p>
-        </div>
         <div className="overflow-hidden" ref={addToRefs}>
         <Clock />
         </div>
