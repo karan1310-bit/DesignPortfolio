@@ -38,5 +38,6 @@ export default function Home() {
       <RecentProject />
       <Footer />
     </main>
+  
   );
 }

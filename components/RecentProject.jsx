@@ -16,14 +16,14 @@ export default function RecentProject() {
   useEffect(() => {
     // Animate text lines
     gsap.from(lineRefs.current, {
-      y: 100,
+      y: 150,
       opacity: 0,
       duration: 1,
       ease: 'power3.out',
       stagger: 0.1,
       scrollTrigger: {
         trigger: containerRef.current,
-        start: 'top 90%',
+        start: 'top 80%',
         toggleActions: 'play none none none',
       },
     });
@@ -32,13 +32,13 @@ export default function RecentProject() {
     [imageRef1, imageRef2].forEach((ref) => {
       if (!ref.current) return;
       gsap.from(ref.current, {
-        y: 100,
+        y: 150,
         opacity: 0,
-        duration: 1.2,
+        duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: ref.current,
-          start: 'top 90%',
+          start: 'top 80%',
           toggleActions: 'play none none none',
         },
       });
@@ -91,6 +91,7 @@ export default function RecentProject() {
             src="/images/2.png"
             alt="Sleek Frame Image"
             fill
+            sizes="(max-width: 768px) 100vw, 80vw"
             className="w-full h-full object-cover object-bottom transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
           />
         </div>
@@ -130,6 +131,7 @@ export default function RecentProject() {
             src="/images/1.jpg"
             alt="Disco Den Image"
             fill
+            sizes="(max-width: 768px) 100vw, 80vw"
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
           />
         </div>

@@ -22,26 +22,26 @@ export default function HomeHobbie() {
     // Run animation after all DOM nodes are in place
     setTimeout(() => {
       gsap.from(lineRefs.current, {
-        y: 100,
+        y: 150,
         opacity: 0,
         duration: 1,
         ease: 'power3.out',
         stagger: 0.1,
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 90%',
+          start: 'top 80%',
           toggleActions: 'play none none none',
         },
       });
 
       gsap.from(imageRef.current, {
-        y: 100,
+        y: 150,
         opacity: 0,
-        duration: 1.5,
+        duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 90%',
+          start: 'top 80%',
           toggleActions: 'play none none none',
         },
         delay: 0.3,

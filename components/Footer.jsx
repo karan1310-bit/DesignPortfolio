@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Eyes from "./Eye";
+import Clock from "./Clock";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +21,7 @@ export default function ContactSection() {
     if (!containerRef.current) return;
 
     gsap.from(lineRefs.current, {
-      y: 100,
+      y: 150,
       opacity: 0,
       duration: 1,
       ease: "power3.out",
@@ -54,7 +56,8 @@ export default function ContactSection() {
         </p>
       </div></div>
 
-      <div className="block sm:hidden w-[60vw] text-left">
+<div className="flex flex-col sm:hidden justify-end items-start gap-8">
+      <div className="w-[60vw] text-left">
       <a href="mailto:kfreelance131@gmail.com" className="inline-block">
         <div className="flex flex-col space-y-1">
           <span ref={addToRefs} className="text-6xl font-bold relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-[5px] after:w-full after:bg-black">
@@ -71,9 +74,12 @@ export default function ContactSection() {
           </span>
         </div>
       </a>
+      </div>
+      <Eyes />
     </div>
 
-      <div className="group w-fit hidden sm:block">
+    <div className="hidden sm:flex justify-between items-center pr-12">
+      <div className="group w-fit">
         <h1 className="text-[10vw] sm:text-5xl md:text-7xl lg:text-9xl font-bold leading-none space-y-4">
           <div className="overflow-hidden">
             <a
@@ -96,6 +102,8 @@ export default function ContactSection() {
             </a>
           </div>
         </h1>
+        </div>
+        <Eyes />
       </div>
 
     <footer className="grid grid-cols-1 sm:grid-cols-3 text-base md:text-lg uppercase font-medium mt-12 md:mt-20 gap-4 md:gap-8">
@@ -145,6 +153,9 @@ export default function ContactSection() {
         </div>
         <div className="overflow-hidden">
           <p ref={addToRefs}>Inspiration Richard Ekwonye</p>
+        </div>
+        <div className="overflow-hidden" ref={addToRefs}>
+        <Clock />
         </div>
       </div>
     </footer>

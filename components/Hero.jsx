@@ -10,7 +10,7 @@ const Hero = () => {
 
   useEffect(() => {
     gsap.from(lineRefs.current, {
-      y: 100,
+      y: 150,
       opacity: 0,
       duration: 1,
       ease: "power3.out",
@@ -19,22 +19,24 @@ const Hero = () => {
     });
 
     gsap.from(arrowRefs.current, {
-      y: 100,
+      y: 150,
       opacity: 0,
       duration: 1,
       ease: "power3.out",
       delay: 6,
-      stagger: 0.2,
+      stagger: 0.1,
     });
 
     gsap.from(imageRef.current, {
-      y: 100, // 👈 comes from below
+      y: 150, // 👈 comes from below
       opacity: 0,
       duration: 1.5,
       ease: "power3.out",
       delay: 6.2,
     });
   }, []);
+
+  
 
   const headingLines = ["CREATIVE", "DEVELOPER"];
   const paragraphLines = [
@@ -79,23 +81,7 @@ const Hero = () => {
         </div>
 
         {/* Mobile Name + Arrow */}
-        <div className="flex items-start md:hidden gap-2">
-          <div className="overflow-hidden">
-            <h1
-              className="text-[13vw] uppercase font-semibold leading-[0.9]"
-              ref={(el) =>
-                (lineRefs.current[headingLines.length + paragraphLines.length] =
-                  el)
-              }
-            >
-              {mobileName}
-            </h1>
-          </div>
-          <BsArrowDown
-            className="text-4xl font-light self-start"
-            ref={(el) => (arrowRefs.current[0] = el)}
-          />
-        </div>
+        
 
         {/* Text Section */}
         <div className="w-[85vw] sm:w-1/2 flex flex-col md:gap-2 leading-tight">

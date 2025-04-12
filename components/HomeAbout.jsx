@@ -31,7 +31,7 @@ const HomeAbout = () => {
       if (!containerRef.current) return;
   
       gsap.from(lineRefs.current, {
-        y: 100,
+        y: 150,
         opacity: 0,
         duration: 1,
         ease: "power3.out",

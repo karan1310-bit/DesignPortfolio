@@ -52,7 +52,7 @@ const Preloader = () => {
   }, []);
 
   return (
-    <div className="preloader fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#e5e3e0] font-satoshi">
+    <div className="preloader fixed inset-0 z-[999] flex flex-col items-center justify-center bg-[#e5e3e0] font-satoshi">
       {/* Progress bar */}
       <div className="progress-container w-[80%] max-w-[300px] h-[1px] md:h-[2px] bg-white/10 mb-2 relative">
         <div className="progress-bar absolute top-0 left-0 h-full w-0 bg-black" />
