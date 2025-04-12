@@ -46,6 +46,24 @@ export default function HomeHobbie() {
         },
         delay: 0.3,
       });
+
+      const parallaxInner = imageRef.current?.querySelector('.parallax-hobbie');
+      if (parallaxInner) {
+        gsap.fromTo(
+          parallaxInner,
+          { backgroundPosition: '50% 0%' },
+          {
+            backgroundPosition: '50% 100%',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          }
+        );
+      }
     }, 0);
 
     const el = filmmakingRef.current;
@@ -106,14 +124,10 @@ export default function HomeHobbie() {
                   ref={imageRef}
                   className="relative w-full h-full overflow-hidden group"
                 >
-                  <Image
-                    src="/images/img2.png"
-                    alt="VR Gaming"
-                    width={1600}
-                    height={600}
-                    priority
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
-                  />
+                  <div
+                    className="parallax-hobbie w-full h-full bg-cover bg-top bg-no-repeat"
+                    style={{ backgroundImage: "url('/images/img4.png')" }}
+                  ></div>
                 </div>
               </div>
             </div>

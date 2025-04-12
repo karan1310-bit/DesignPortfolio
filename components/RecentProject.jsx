@@ -28,6 +28,8 @@ export default function RecentProject() {
 
     imageRefs.current.forEach((ref) => {
       if (!ref) return;
+
+      // Apply initial scroll-in animation
       gsap.from(ref, {
         y: 150,
         opacity: 0,
@@ -39,6 +41,25 @@ export default function RecentProject() {
           toggleActions: 'play none none none',
         },
       });
+
+      // Apply background parallax effect
+      const imageInner = ref.querySelector('.parallax-bg');
+      if (imageInner) {
+        gsap.fromTo(
+          imageInner,
+          { backgroundPosition: '50% 30%' },
+          {
+            backgroundPosition: '50% 100%',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: ref,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          }
+        );
+      }
     });
   }, []);
 
@@ -63,7 +84,7 @@ export default function RecentProject() {
       </div>
 
       {/* Project 1 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center w-[80vw] sm:w-full gap-8 md:gap-0 mt-8 md:mt-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-start w-[80vw] sm:w-full gap-8 md:gap-0 mt-8 md:mt-16">
         <div className="space-y-0 md:space-y-1">
           {['SLEEK', 'FRAME'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
@@ -94,19 +115,16 @@ export default function RecentProject() {
             ref={(el) => (imageRefs.current[0] = el)}
             className="group relative w-full aspect-[1/1] md:aspect-[21/9] overflow-hidden"
           >
-            <Image
-              src="/images/2.png"
-              alt="Sleek Frame Image"
-              fill
-              sizes="(max-width: 768px) 100vw, 80vw"
-              className="w-full h-full object-cover object-bottom transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
-            />
+            <div
+              className="parallax-bg w-full h-full bg-cover bg-no-repeat bg-center"
+              style={{ backgroundImage: "url('/images/3.png')" }}
+            ></div>
           </div>
         </div>
       </div>
 
       {/* Project 2 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center w-[80vw] sm:w-full gap-8 md:gap-0 mt-8 md:mt-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-start w-[80vw] sm:w-full gap-8 md:gap-0 mt-8 md:mt-16">
         <div className="space-y-0 md:space-y-1">
           {['DISCO', 'DEN'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
@@ -137,13 +155,10 @@ export default function RecentProject() {
             ref={(el) => (imageRefs.current[1] = el)}
             className="group relative w-full aspect-[1/1] sm:aspect-[21/9] overflow-hidden"
           >
-            <Image
-              src="/images/1.jpg"
-              alt="Disco Den Image"
-              fill
-              sizes="(max-width: 768px) 100vw, 80vw"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
-            />
+            <div
+              className="parallax-bg w-full h-full bg-cover bg-no-repeat bg-center"
+              style={{ backgroundImage: "url('/images/1.jpg')" }}
+            ></div>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 'use client'
+import Cursor from "@/components/CustomCursor";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import HomeAbout from "@/components/HomeAbout";
@@ -30,6 +31,7 @@ export default function Home() {
 
   return (
     <main className="bg-[#e5e3e0] text-black min-h-screen w-full overflow-hidden">
+      <Cursor />
       <Preloader />
       <Header />
       <Hero />

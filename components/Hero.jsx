@@ -2,6 +2,9 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { BsArrowDown } from "react-icons/bs";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -59,13 +62,33 @@ const Hero = () => {
           if (iteration >= originalText.length) {
             clearInterval(interval);
           }
-          iteration += 1 / 2; // even faster
-        }, 30); // faster frame rate
+          iteration += 1 / 2;
+        }, 30);
       };
 
       runScramble();
       const repeat = setInterval(runScramble, 5000);
       return () => clearInterval(repeat);
+    }
+  }, []);
+
+  useEffect(() => {
+    const innerImage = document.querySelector('.parallax-hero');
+    if (innerImage) {
+      gsap.fromTo(
+        innerImage,
+        { backgroundPosition: '50%, 0%' },
+        {
+          backgroundPosition: '50% 100%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: innerImage,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          },
+        }
+      );
     }
   }, []);
 
@@ -105,24 +128,15 @@ const Hero = () => {
         <div className="w-[80vw] md:w-1/2">
           {/* Aspect ratio container */}
           <div className="aspect-[1/1] md:aspect-[3/1.2] overflow-hidden">
-            {/* Animation wrapper with overflow hidden */}
             <div className="w-full h-full overflow-hidden group">
-              <div ref={imageRef} className="w-full h-full">
-                <Image
-                  src="/images/img1.png"
-                  alt="Portrait of Richard"
-                  width={1600}
-                  height={600}
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-1"
-                  priority
-                />
-              </div>
+              <div 
+                className="w-full h-full parallax-hero bg-cover bg-top bg-no-repeat"
+                style={{ backgroundImage: "url('/images/img3.png')" }}
+                ref={imageRef}
+              ></div>
             </div>
           </div>
         </div>
-
-        {/* Mobile Name + Arrow */}
-        
 
         {/* Text Section */}
         <div className="w-[85vw] sm:w-1/2 flex flex-col md:gap-2 leading-tight">
