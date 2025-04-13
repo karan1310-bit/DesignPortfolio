@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,7 +48,7 @@ export default function RecentProject() {
       if (imageInner) {
         gsap.fromTo(
           imageInner,
-          { backgroundPosition: '50% 30%' },
+          { backgroundPosition: '50% 0%' },
           {
             backgroundPosition: '50% 100%',
             ease: 'none',
@@ -88,6 +89,7 @@ export default function RecentProject() {
         <div className="space-y-0 md:space-y-1">
           {['SLEEK', 'FRAME'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
+              <Link href="https://sleekframestudio.com/" target="_blank" className='cursor-pointer'>
               <h1
                 ref={(el) => (lineRefs.current[3 + idx] = el)}
                 className="text-[clamp(2.5rem,8vw,6rem)] leading-none font-bold tracking-tight"
@@ -97,7 +99,7 @@ export default function RecentProject() {
                     {text}
                   </span>
                 </span>
-              </h1>
+              </h1></Link>
             </div>
           ))}
           <div className="overflow-hidden">
@@ -117,7 +119,7 @@ export default function RecentProject() {
           >
             <div
               className="parallax-bg w-full h-full bg-cover bg-no-repeat bg-center"
-              style={{ backgroundImage: "url('/images/3.png')" }}
+              style={{ backgroundImage: "url('/images/4.png')" }}
             ></div>
           </div>
         </div>
@@ -157,7 +159,7 @@ export default function RecentProject() {
           >
             <div
               className="parallax-bg w-full h-full bg-cover bg-no-repeat bg-center"
-              style={{ backgroundImage: "url('/images/1.jpg')" }}
+              style={{ backgroundImage: "url('/images/5.png')" }}
             ></div>
           </div>
         </div>
