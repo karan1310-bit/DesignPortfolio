@@ -5,10 +5,10 @@ import Hero from "@/components/Hero";
 import HomeAbout from "@/components/HomeAbout";
 import HomeHobbie from "@/components/HomeHobbie";
 import Header from "@/components/navbarr/Header";
-import Preloader from "@/components/Preloader";
 import RecentProject from "@/components/RecentProject";
 import Lenis from 'lenis'
 import { useEffect } from "react";
+import { motion } from 'framer-motion'
 
 export default function Home() {
 
@@ -30,16 +30,21 @@ export default function Home() {
   }, [])
 
   return (
+    <motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: 1, ease: "easeInOut" }}
+  className="bg-[#e5e3e0]"
+>
     <main className="bg-[#e5e3e0] text-black min-h-screen w-full overflow-hidden">
       <Cursor />
-      <Preloader />
       <Header />
       <Hero />
       <HomeAbout />
       <HomeHobbie />
       <RecentProject />
       <Footer />
-    </main>
-  
+    </main>  </motion.div>
   );
 }

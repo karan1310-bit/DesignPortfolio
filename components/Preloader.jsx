@@ -1,77 +1,83 @@
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+'use client';
+
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Preloader = () => {
   const refs = {
+    container: useRef(null),
     initial: useRef(null),
     complete: useRef(null),
     percentage: useRef(null),
   };
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-  
-    const { initial, complete, percentage } = refs;
-  
-    // Set initial states
+  useGSAP(() => {
+    const { container, initial, complete, percentage } = refs;
+
+    const seen = sessionStorage.getItem('hasSeenPreloader');
+    if (seen) {
+      gsap.set(container.current, { display: 'none' });
+      return;
+    }
+
     gsap.set(initial.current, { opacity: 1, y: 0 });
     gsap.set(complete.current, { opacity: 0, y: 30 });
-  
-    const tl = gsap.timeline();
-  
-    tl.to(".progress-bar", {
-      width: "100%",
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        sessionStorage.setItem('hasSeenPreloader', 'true');
+        container.current.style.display = 'none';
+      },
+    });
+
+    tl.to('.progress-bar', {
+      width: '100%',
       duration: 4,
-      ease: "power1.inOut",
-      onUpdate: function () {
+      ease: 'power1.inOut',
+      onUpdate() {
         if (percentage.current) {
           percentage.current.textContent = Math.round(this.progress() * 100);
         }
       },
     })
-    // FIX: Remove the overlap by sequencing animations properly
-    .to(initial.current, {
-      y: -30,
-      opacity: 0,
-      duration: 0.4,
-      ease: "power2.inOut",
-    })
-    .to(complete.current, { // Remove the "<0.1" offset
-      y: 0,
-      opacity: 1,
-      duration: 0.4,
-      ease: "power2.out",
-    })  
-      .to(".preloader", {
-        y: "-100vh",
-        duration: 1,
-        ease: "power2.inOut",
-        delay: 0.8,
+      .to(initial.current, {
+        y: -30,
+        opacity: 0,
+        duration: 0.4,
+        ease: 'power2.inOut',
       })
-      .set(".preloader", { display: "none" });
+      .to(complete.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+      })
+      .to(container.current, {
+        y: '-100vh',
+        duration: 1,
+        ease: 'power2.inOut',
+        delay: 0.8,
+      });
   }, []);
 
   return (
-    <div className="preloader fixed inset-0 z-[999] flex flex-col items-center justify-center bg-[#e5e3e0] font-satoshi">
-      {/* Progress bar */}
-      <div className="progress-container w-[80%] max-w-[300px] h-[1px] md:h-[2px] bg-white/10 mb-2 relative">
-        <div className="progress-bar absolute top-0 left-0 h-full w-0 bg-black" />
+    <div
+      ref={refs.container}
+      className="preloader fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black font-satoshi"
+    >
+
+      <div className='fixed top-8 left-8'>
+        <p className="text-lg sm:text-2xl font-medium text-[#e5e3e0]">&copy; K 2025</p>
       </div>
 
-      {/* Animated text */}
-      <div className="text-container relative overflow-hidden my-2 text-center uppercase tracking-tight text-sm sm:text-xl leading-none w-[70%] sm:w-[250px] md:w-[300px] h-12 sm:h-14 md:h-16">
-        <div ref={refs.initial} className="absolute w-full">
-        don’t tell anyone
-        </div>
-        <div ref={refs.complete} className="absolute w-full">
-        I'm Batman
-        </div>
+      <div className="progress-container w-[80%] max-w-[300px] h-[1px] md:h-[2px] bg-black mb-2 relative">
+        <div className="progress-bar absolute top-0 left-0 h-full w-0 bg-white/20" />
       </div>
 
-      {/* Percentage counter */}
       <div
         ref={refs.percentage}
-        className="percentage fixed bottom-6 right-4 text-[7rem] sm:text-[8rem] md:text-[9rem] lg:text-[10rem] xl:text-[14rem] 2xl:text-[16rem] font-bold opacity-10 leading-[0.8]"
+        className="percentage fixed bottom-6 right-4 text-[8rem] sm:text-[11rem] md:text-[20rem] lg:text-[20rem] xl:text-[20rem] 2xl:text-[20rem] font-medium text-[#e5e3e0] leading-[0.8]"
       >
         0
       </div>

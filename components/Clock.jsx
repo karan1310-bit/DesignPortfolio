@@ -2,23 +2,23 @@
 
 import { useEffect, useState, useRef } from 'react';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 export default function Clock() {
-  const [time, setTime] = useState(null); // No time on initial render
+  const [time, setTime] = useState(null);
   const clockRef = useRef(null);
 
+  // ⏱ Time updates
   useEffect(() => {
-    // Set initial time only on client
     setTime(new Date());
-
     const interval = setInterval(() => {
       setTime(new Date());
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
+  // ✨ GSAP animation on mount
+  useGSAP(() => {
     if (clockRef.current) {
       gsap.from(clockRef.current, {
         opacity: 0,
@@ -27,7 +27,7 @@ export default function Clock() {
         ease: 'power3.out',
       });
     }
-  }, []);
+  }, { scope: clockRef });
 
   const formatTime = (date) =>
     date?.toLocaleTimeString('en-US', {
@@ -36,7 +36,7 @@ export default function Clock() {
       second: '2-digit',
     });
 
-  if (!time) return null; // 👈 Don’t render during SSR
+  if (!time) return null;
 
   return (
     <p

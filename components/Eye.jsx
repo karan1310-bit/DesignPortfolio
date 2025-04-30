@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,6 +12,7 @@ export default function Eyes() {
   const containerRef = useRef(null);
   const [blinked, setBlinked] = useState(false);
 
+  // Cursor tracking & blinking logic stays in useEffect
   useEffect(() => {
     const handleMouseMove = (e) => {
       eyeRefs.current.forEach((eye) => {
@@ -33,12 +35,8 @@ export default function Eyes() {
 
     const blink = () => {
       setBlinked(true);
-      setTimeout(() => {
-        setBlinked(false);
-      }, 200);
-
-      const nextBlink = Math.random() * 5000 + 1000;
-      setTimeout(blink, nextBlink);
+      setTimeout(() => setBlinked(false), 200);
+      setTimeout(blink, Math.random() * 5000 + 1000);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -50,8 +48,8 @@ export default function Eyes() {
     };
   }, []);
 
-  // 👉 Add scroll animation
-  useEffect(() => {
+  // 👇 GSAP scroll reveal animation via useGSAP
+  useGSAP(() => {
     if (!containerRef.current) return;
 
     gsap.from(containerRef.current, {
@@ -65,12 +63,11 @@ export default function Eyes() {
         toggleActions: 'play none none none',
       },
     });
-  }, []);
-
+  }, { scope: containerRef });
 
   return (
     <div className="flex items-center justify-center min-h-fit overflow-hidden font-satoshi">
-        <div
+      <div
         ref={containerRef}
         className="w-[110px] h-[100px] rounded-[22px] shadow-md bg-gradient-to-b from-[#e6e6e6] to-[#d1d1d1] flex items-center justify-center pb-2 relative"
       >
@@ -94,4 +91,3 @@ export default function Eyes() {
     </div>
   );
 }
-  

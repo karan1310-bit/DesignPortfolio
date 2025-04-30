@@ -1,16 +1,23 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { opacity, background } from './anim';
 import Nav from './nav/Nav';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false);
 
+  const pathname = usePathname();
+
+useEffect(() => {
+  setIsActive(false); // Close menu when route changes
+}, [pathname]);
+
   return (
-    <div className="fixed w-full bg-[#e5e3e0] text-black font-satoshi px-6 py-4 md:px-8 md:py-8 z-10">
+    <div className="fixed w-full bg-[#e5e3e0] text-black font-satoshi px-6 py-4 md:px-8 md:py-8 z-30">
   <motion.div
     variants={background}
     initial="initial"

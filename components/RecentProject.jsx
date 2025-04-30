@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,7 +14,8 @@ export default function RecentProject() {
   const containerRef = useRef(null);
   const imageRefs = useRef([]);
 
-  useEffect(() => {
+  useGSAP(() => {
+    // Animate text lines
     gsap.from(lineRefs.current, {
       y: 150,
       opacity: 0,
@@ -27,10 +29,11 @@ export default function RecentProject() {
       },
     });
 
+    // Animate image sections
     imageRefs.current.forEach((ref) => {
       if (!ref) return;
 
-      // Apply initial scroll-in animation
+      // Entry animation
       gsap.from(ref, {
         y: 150,
         opacity: 0,
@@ -43,7 +46,7 @@ export default function RecentProject() {
         },
       });
 
-      // Apply background parallax effect
+      // Parallax background
       const imageInner = ref.querySelector('.parallax-bg');
       if (imageInner) {
         gsap.fromTo(
@@ -62,7 +65,7 @@ export default function RecentProject() {
         );
       }
     });
-  }, []);
+  }, { scope: containerRef });
 
   return (
     <section
@@ -85,21 +88,22 @@ export default function RecentProject() {
       </div>
 
       {/* Project 1 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-start w-[80vw] sm:w-full gap-8 md:gap-0 mt-8 md:mt-16">
+      <div className="grid grid-cols-1 items-start w-[80vw] sm:w-full gap-8 mt-8 md:mt-12">
         <div className="space-y-0 md:space-y-1">
           {['SLEEK', 'FRAME'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
-              <Link href="https://sleekframestudio.com/" target="_blank" className='cursor-pointer'>
-              <h1
-                ref={(el) => (lineRefs.current[3 + idx] = el)}
-                className="text-[clamp(2.5rem,8vw,6rem)] leading-none font-bold tracking-tight"
-              >
-                <span className="group relative inline-block pt-2">
-                  <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">
-                    {text}
+              <Link href="https://sleekframestudio.com/" target="_blank" className="cursor-pointer">
+                <h1
+                  ref={(el) => (lineRefs.current[3 + idx] = el)}
+                  className="text-[clamp(2.5rem,8vw,6rem)] leading-none font-bold tracking-tight"
+                >
+                  <span className="group relative inline-block pt-2">
+                    <span className="relative z-10 inline-block after:absolute after:left-0 after:bottom-0 after:h-[3px] after:w-full after:bg-black after:scale-x-100 after:origin-left after:transition-transform after:duration-500 group-hover:after:scale-x-75">
+                      {text}
+                    </span>
                   </span>
-                </span>
-              </h1></Link>
+                </h1>
+              </Link>
             </div>
           ))}
           <div className="overflow-hidden">
@@ -115,7 +119,7 @@ export default function RecentProject() {
         <div className="overflow-hidden">
           <div
             ref={(el) => (imageRefs.current[0] = el)}
-            className="group relative w-full aspect-[1/1] md:aspect-[21/9] overflow-hidden"
+            className="group relative w-full md:w-[50vw] md:h-[30vh] aspect-[1/1] md:aspect-[21/9] overflow-hidden"
           >
             <div
               className="parallax-bg w-full h-full bg-cover bg-no-repeat bg-center"
@@ -126,7 +130,7 @@ export default function RecentProject() {
       </div>
 
       {/* Project 2 */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-start w-[80vw] sm:w-full gap-8 md:gap-0 mt-8 md:mt-16">
+      <div className="grid grid-cols-1 items-start w-[80vw] sm:w-full gap-8 mt-8 md:mt-16">
         <div className="space-y-0 md:space-y-1">
           {['DISCO', 'DEN'].map((text, idx) => (
             <div className="overflow-hidden" key={text}>
@@ -155,7 +159,7 @@ export default function RecentProject() {
         <div className="overflow-hidden">
           <div
             ref={(el) => (imageRefs.current[1] = el)}
-            className="group relative w-full aspect-[1/1] sm:aspect-[21/9] overflow-hidden"
+            className="group relative w-full md:w-[50vw] md:h-[30vh] aspect-[1/1] sm:aspect-[21/9] overflow-hidden"
           >
             <div
               className="parallax-bg w-full h-full bg-cover bg-no-repeat bg-center"
