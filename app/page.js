@@ -35,9 +35,9 @@ export default function Home() {
   animate={{ opacity: 1 }}
   exit={{ opacity: 0 }}
   transition={{ duration: 1, ease: "easeInOut" }}
-  className="bg-[#e5e3e0]"
+  className="bg-[#EDE8D0]"
 >
-    <main className="bg-[#e5e3e0] text-black min-h-screen w-full overflow-hidden">
+    <main className="bg-[#EDE8D0] text-black min-h-screen w-full overflow-hidden">
       <Cursor />
       <Header />
       <Hero />

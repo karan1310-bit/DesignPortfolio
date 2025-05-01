@@ -68,7 +68,7 @@ const Preloader = () => {
     >
 
       <div className='fixed top-8 left-8'>
-        <p className="text-lg sm:text-2xl font-medium text-[#e5e3e0]">&copy; K 2025</p>
+        <p className="text-lg sm:text-2xl font-medium text-[#EDE8D0]">&copy; K 2025</p>
       </div>
 
       <div className="progress-container w-[80%] max-w-[300px] h-[1px] md:h-[2px] bg-black mb-2 relative">
@@ -77,7 +77,7 @@ const Preloader = () => {
 
       <div
         ref={refs.percentage}
-        className="percentage fixed bottom-6 right-4 text-[8rem] sm:text-[11rem] md:text-[20rem] lg:text-[20rem] xl:text-[20rem] 2xl:text-[20rem] font-medium text-[#e5e3e0] leading-[0.8]"
+        className="percentage fixed bottom-8 right-4 text-[6rem] sm:text-[9rem] md:text-[14rem] lg:text-[15rem] xl:text-[18rem] 2xl:text-[20rem] font-medium text-[#EDE8D0] leading-[0.8]"
       >
         0
       </div>

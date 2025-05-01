@@ -69,7 +69,7 @@ export default function Eyes() {
     <div className="flex items-center justify-center min-h-fit overflow-hidden font-satoshi">
       <div
         ref={containerRef}
-        className="w-[110px] h-[100px] rounded-[22px] shadow-md bg-gradient-to-b from-[#e6e6e6] to-[#d1d1d1] flex items-center justify-center pb-2 relative"
+        className="w-[110px] h-[100px] rounded-[22px] shadow-md bg-gradient-to-b from-[#e8e4d0] to-[#e8e3ce] flex items-center justify-center pb-4 relative"
       >
         <div className="flex gap-[3px]">
           {[0, 1].map((_, i) => (

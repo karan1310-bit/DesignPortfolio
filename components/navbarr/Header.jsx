@@ -17,7 +17,7 @@ useEffect(() => {
 }, [pathname]);
 
   return (
-    <div className="fixed w-full bg-[#e5e3e0] text-black font-satoshi px-6 py-4 md:px-8 md:py-8 z-30">
+    <div className="fixed w-full bg-[#EDE8D0] text-black font-satoshi px-6 py-4 md:px-8 md:py-8 z-30">
   <motion.div
     variants={background}
     initial="initial"

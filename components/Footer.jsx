@@ -40,7 +40,7 @@ export default function ContactSection() {
   return (
     <section
       ref={containerRef}
-      className="bg-[#e5e3e0] text-black font-satoshi px-4 sm:px-8 pb-8 lg:px-12"
+      className="bg-[#EDE8D0] text-black font-satoshi px-4 sm:px-8 pb-8 lg:px-12"
     >
       <div className="overflow-hidden">
         <p ref={addToRefs} className="text-base sm:text-xl font-semibold">04/</p>
