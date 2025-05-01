@@ -27,11 +27,9 @@ export default function Home() {
       transition={{ duration: 1, ease: "easeInOut" }}
       className="bg-black"
     >
-      <main className="bg-black text-[#EDE8D0] relative font-satoshi min-h-screen w-full overflow-hidden ">
+      <main className="bg-black text-[#EDE8D0] relative font-satoshi h-screen w-full overflow-hidden ">
         <Header backgroundColor="#000000" textColor="#EDE8D0" />
-
         <StarfieldBackground />
-
         <div className="absolute inset-0 z-10 flex flex-col justify-between px-4 sm:px-6 md:px-10 lg:px-12 py-4 lg:py-8">
           {/* Centered Email */}
           <section className="flex flex-col items-center justify-center text-center px-4 grow">
@@ -57,6 +55,8 @@ export default function Home() {
 
             <Link
               href="https://www.instagram.com/bhati_.01?igsh=Z3VyZjlpYjh5Znc2"
+              target="_blank"
+                rel="noopener noreferrer"
               className="relative overflow-hidden group"
             >
               <span className="relative z-10">INSTAGRAM</span>
@@ -65,6 +65,8 @@ export default function Home() {
 
             <Link
               href="https://x.com/bhati_131?t=vnNfkKdx59cJmwNvNuOHrQ&s=09"
+              target="_blank"
+                rel="noopener noreferrer"
               className="relative overflow-hidden group"
             >
               <span className="relative z-10">X</span>
@@ -73,6 +75,8 @@ export default function Home() {
 
             <Link
               href="https://github.com/karan1310-bit"
+              target="_blank"
+                rel="noopener noreferrer"
               className="relative overflow-hidden group"
             >
               <span className="relative z-10">GITHUB</span>
