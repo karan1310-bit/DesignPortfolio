@@ -25,7 +25,7 @@ const links = [
   },
 ];
 
-export default function Nav() {
+export default function Nav({ textColor = '#000000' }) {
   const [selectedLink, setSelectedLink] = useState({ isActive: false, index: 0 });
 
   return (
@@ -35,6 +35,7 @@ export default function Nav() {
       animate="enter"
       exit="exit"
       className="overflow-hidden"
+      style={{ color: textColor }}
     >
       <div className="flex flex-col font-satoshi lg:flex-row gap-[50px] mb-[80px] lg:mb-0 lg:justify-between">
         <div className="flex flex-col justify-between">

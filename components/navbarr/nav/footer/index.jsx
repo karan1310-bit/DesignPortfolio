@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
-    <div className="flex flex-wrap items-start mt-6 text-[12px] md:text-xl font-satoshi uppercase text-black">
+    <div className="flex flex-wrap items-start mt-6 text-[12px] md:text-xl font-satoshi uppercase">
       <ul className="w-1/2 lg:w-auto mt-2 md:hidden overflow-hidden list-none p-0">
         <motion.li
           custom={[0.3, 0]}

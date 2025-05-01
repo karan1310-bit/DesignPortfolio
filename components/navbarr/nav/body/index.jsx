@@ -23,7 +23,7 @@ export default function Body({ links, selectedLink, setSelectedLink }) {
       {links.map((link, index) => {
         const { title, href } = link;
         return (
-          <Link key={`l_${index}`} href={href} className="no-underline uppercase text-black">
+          <Link key={`l_${index}`} href={href} className="no-underline uppercase">
             <motion.p
               onMouseOver={() => setSelectedLink({ isActive: true, index })}
               onMouseLeave={() => setSelectedLink({ isActive: false, index })}
